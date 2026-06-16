@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_netflix_titles
+    description: "Cleaned, renamed Netflix titles. One row per title."
+    columns:
+      - name: show_id
+        description: "Unique title id (s1, s2, ...)."
+        data_tests:
+          - unique
+          - not_null
+      - name: title_type
+        description: "'Movie' or 'TV Show'."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['Movie', 'TV Show']
+      - name: release_year
+        description: "Year the title was released."
+        data_tests:
+          - not_negative
+
+  - name: stg_credits
+    description: "Cleaned cast and crew. One row per person per title."
+    columns:
+      - name: person_id
+        description: "Person identifier."
+        data_tests:
+          - not_null
+      - name: role
+        description: "ACTOR or DIRECTOR."
+        data_tests:
+          - accepted_values:
+              values: ['ACTOR', 'DIRECTOR']

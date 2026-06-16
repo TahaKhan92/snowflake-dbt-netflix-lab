@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: raw
+    database: DBT_SNOWFLAKE_DEV
+    schema: RAW
+    description: "Raw source data loaded from S3 into Snowflake RAW schema"
+
+    tables:
+      - name: NETFLIX_TITLES
+        description: "Raw Netflix titles data — movies and TV shows"
+        columns:
+          - name: SHOW_ID
+            description: "Unique identifier for each title e.g. s1, s2"
+          - name: TYPE
+            description: "Movie or TV Show"
+          - name: TITLE
+            description: "Title of the show or movie"
+          - name: DIRECTOR
+            description: "Director name, nullable"
+          - name: CAST
+            description: "Comma separated cast list, nullable"
+          - name: COUNTRY
+            description: "Country of production, nullable"
+          - name: DATE_ADDED
+            description: "Date added to Netflix e.g. September 25 2021"
+          - name: RELEASE_YEAR
+            description: "Year of release"
+          - name: RATING
+            description: "Content rating e.g. PG-13, TV-MA"
+          - name: DURATION
+            description: "Duration e.g. 90 min or 2 Seasons"
+          - name: LISTED_IN
+            description: "Genres comma separated"
+          - name: DESCRIPTION
+            description: "Short description of the title"
+
+      - name: CREDITS
+        description: "Raw credits data — actors and directors per title"
+        columns:
+          - name: PERSON_ID
+            description: "Unique identifier for the person"
+          - name: ID
+            description: "Title ID e.g. tm84618. NOTE: different scheme from NETFLIX_TITLES.SHOW_ID — does NOT join."
+          - name: NAME
+            description: "Full name of the actor or director"
+          - name: CHARACTER
+            description: "Character name played, nullable for directors"
+          - name: ROLE
+            description: "ACTOR or DIRECTOR"

@@ -1,0 +1,41 @@
+# ───────────── Secrets / credentials (NEVER commit) ─────────────
+*.pem
+*.key
+*accessKeys*.csv
+*credentials*
+.env
+.env.*
+# Real dbt profile (use profiles.example.yml as the template)
+profiles.yml
+**/profiles.yml
+
+# ───────────── Terraform ─────────────
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars               # commit only terraform.tfvars.example
+!*.tfvars.example
+crash.log
+crash.*.log
+.terraform.lock.hcl
+
+# ───────────── dbt ─────────────
+**/target/
+**/dbt_packages/
+**/logs/
+.user.yml
+
+# ───────────── Python virtual environments ─────────────
+.venv/
+venv/
+env/
+*venv/
+dbt_venv/
+__pycache__/
+*.py[cod]
+
+# ───────────── OS / editor ─────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

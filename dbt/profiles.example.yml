@@ -1,0 +1,17 @@
+# Template for ~/.dbt/profiles.yml — copy this to ~/.dbt/profiles.yml and fill in your values.
+# NEVER commit your real profiles.yml (it contains your password). It is gitignored.
+# Prefer an env var for the password:  password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+dbt_snowflake:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "<ORG_NAME>-<ACCOUNT_NAME>"   # e.g. ABCDEFG-XY12345 (Snowflake account identifier)
+      user: "<YOUR_SNOWFLAKE_USER>"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: DBT_ROLE
+      database: DBT_SNOWFLAKE_DEV
+      warehouse: DBT_WH
+      schema: STAGING
+      threads: 1

@@ -1,0 +1,8 @@
+# Copy this file to terraform.tfvars and fill in your own values.
+# terraform.tfvars is gitignored so your real values are never committed.
+
+aws_region        = "us-east-1"
+project_name      = "dbt-snowflake-project"
+bucket_name       = "<YOUR_GLOBALLY_UNIQUE_BUCKET_NAME>"   # S3 bucket names are globally unique
+ec2_instance_type = "t2.micro"
+key_pair_name     = "<YOUR_EXISTING_AWS_KEY_PAIR_NAME>"    # an EC2 key pair you already created
