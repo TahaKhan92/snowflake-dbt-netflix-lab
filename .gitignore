@@ -13,7 +13,8 @@ profiles.yml
 **/.terraform/
 *.tfstate
 *.tfstate.*
-*.tfvars               # commit only terraform.tfvars.example
+# commit only terraform.tfvars.example
+*.tfvars
 !*.tfvars.example
 crash.log
 crash.*.log
@@ -39,3 +40,6 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Filled-in IAM policies (contain account-specific IDs)
+snowflake/iam/*_filled.json
